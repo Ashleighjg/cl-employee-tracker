@@ -1,4 +1,4 @@
-INSERT INTO department (dept_name)
+INSERT INTO department (department_name)
 VALUES ('Customer Service'),
        ('Finance'),
        ('Human Resources'),
@@ -8,28 +8,28 @@ VALUES ('Customer Service'),
        ('Sales'),
        ('Executive');
 
-INSERT INTO role (title, salary, dept_id)
-VALUES ('Director of Customer Experience', '78,500', 1),
-       ('Customer Service Manager', '48,500', 1 ),
-       ('Customer Service Rep', '37,500', 1 ),
-       ('Finance Director', '85,500', 2),
-       ('Accountant', '66,500', 2 ),
-       ('Finance Specialist', '52,500', 2),
-       ('HR Director', '77,500', 3),
-       ('HR Recruiter', '57,500', 3),
-       ('IT Director', '84,500', 4),
-       ('Cloud Architect', '73,500', 4),
-       ('Security Engineer', '72,500', 4),
-       ('System Administrator', '70,500', 4),
-       ('Marketing Director', '79,500', 5),
-       ('Market Research Analyst', '68,500', 5),
-       ('Operations Director', '77,500', 6),
-       ('Operations Manager', '68,500', 6),
-       ('Data Analyst', '63,500', 6),
-       ('Sales Director', '81,500', 7),
-       ('Sales Development Representative', '44,500', 7),
-       ('Account Manager', '55,500', 7),
-       ('Cheif Executive Officer', '145,500', 8);
+INSERT INTO role (title, salary, department_id)
+VALUES ('Director of Customer Experience', 78500, 1),
+       ('Customer Service Manager', 48500, 1 ),
+       ('Customer Service Rep', 37500, 1 ),
+       ('Finance Director', 85500, 2),
+       ('Accountant', 66500, 2 ),
+       ('Finance Specialist', 52500, 2),
+       ('HR Director', 77500, 3),
+       ('HR Recruiter', 57500, 3),
+       ('IT Director', 84500, 4),
+       ('Cloud Architect', 73500, 4),
+       ('Security Engineer', 72500, 4),
+       ('System Administrator', 70500, 4),
+       ('Marketing Director', 79500, 5),
+       ('Market Research Analyst', 68500, 5),
+       ('Operations Director', 77500, 6),
+       ('Operations Manager', 68500, 6),
+       ('Data Analyst', 63500, 6),
+       ('Sales Director', 81500, 7),
+       ('Sales Development Representative', 44500, 7),
+       ('Account Manager', 55500, 7),
+       ('Cheif Executive Officer', 145500, 8);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ('Dorian','Young', 1, 21),
