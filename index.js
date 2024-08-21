@@ -13,7 +13,7 @@ const pool = new Pool(
     // TODO: Enter PostgreSQL username
     user: 'postgres',
     // TODO: Enter PostgreSQL password
-    password: 'Yahgood4dasoul',
+    password: '',
     host: 'localhost',
     database: 'employee_db',
   },
@@ -62,7 +62,7 @@ const promptUser = async () => {
         viewAllEmployees();
       }
 
-      /*
+      
       if (choices === 'add a Department') {
         addDepartment();
       }
@@ -70,7 +70,7 @@ const promptUser = async () => {
       if (choices === 'add a Role') {
         addRole();
       }
-
+/*
       if (choices === 'add an Employee') {
         addEmployee();
       }
@@ -127,18 +127,81 @@ async function viewAllEmployees() {
         console.error(error);
     }
 };
-/*
-function viewAllDepartments() {
-    // Implement logic to retrieve all data from the database
-    //return `SELECT * FROM ${this.database}`;
-    const sql = `SELECT department.id, department.name AS department FROM department`;
-    sequelize.promise().query(sql, (error, response) => {
-      if (error) throw error;
-      console.log('All Departments:');
-      console.table(response);
-      promptUser();
-    });
-  };
+
+
+async function addDepartment() {
+  try {
+    const answer = await inquirer.prompt([
+      {
+        name: 'department',
+        type: 'input',
+        message: 'What is the name of your new Department?'
+      },
+    ])
+    
+    const sql = `INSERT INTO department (department_name) VALUES ('${answer.department}')`;
+    sequelize.query(sql, answer.department)
+    
+    console.log('Department Created');
+    viewAllDepartments();
+    //promptUser();
+  
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+async function addRole() {
+
+  
+  try {
+    await sequelize.query(
+      `Select department.name FROM department`,
+      (err, response) => {
+        if (err) throw err;
+
+        let deptArray = [];
+
+        for (let i = 0; i < response.length; i++) {
+          deptArray.push(response[i].name);
+        }
+      }
+    );
+    
+    const answer = await inquirer.prompt([
+    
+      {
+        name: 'role',
+        type: 'input',
+        message: 'Enter new role'
+      },
+      {
+        name: 'salary',
+        type: 'input',
+        message: 'Enter new role'
+      },
+      {
+        name: 'department',
+        type: 'list',
+        message: 'Which department is this new role in?',
+        choices: { deptArray }
+      },
+    ]);
+    
+    const sql = `SELECT * FROM department WHERE  name = '${data.department}'`;
+    await sequelize.query(sql, answer.department);
+    const sql2 = `INSERT INTO role (title, salary, department_id) VALUES ('${data.role}', '${data.salary}', '${results[0].id}')`;
+    await sequelize.query(sql2, answer.department);
+    
+    console.log('Role Created');
+    viewAllRoles();
+    //promptUser();
+  
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 /*
 // TODO: Create a function to initialize app
