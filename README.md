@@ -5,7 +5,8 @@
 
 I was motivated to do this challenge as part of my bootcamp week12 challenge. This solves the problem of tracking employees in a professional automated way. I learned how to more effenciently use node.js, inquier, and PostgrSQL.
 
-([Link to video walkthrough](https://drive.google.com/file/d/1w4FEhpcvK072HiEcPRELHlmGRmrGCrIw/view))
+([Link to video walkthrough](https://drive.google.com/file/d/1QdZqISc7HNQ5w4_eYaOGXd2xfDPzHYKl/view?usp=sharing))
+
 
 ([Code source location](https://github.com/Ashleighjg/cl-employee-tracker))
 
